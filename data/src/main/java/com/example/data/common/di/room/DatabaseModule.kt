@@ -26,7 +26,7 @@ object DatabaseModule {
     }
 
     @Provides
-    fun provideTaskCategoryDao(database: AppDatabase): ExampleDao {
+    fun provideExampleDao(database: AppDatabase): ExampleDao {
         return database.exampleDao()
     }
 

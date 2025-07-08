@@ -1,19 +1,27 @@
 ## Android Project Template
 
-- Last update: 2023-07-08
+- Last update: 2023-08-14
 
 ### TODO
 
-=> Change following files
+#### change name
 
-- strings.xml : "app_name"
+- strings.xml
+  - "app_name"
+
 - AndroidManifest.xml
   - application.name : package name
   - application.activity.theme : theme name
 
 - build.gradle.kts (:app) 
-  - change "applicationId"
+  - namespace
 
-- com.example.presentation.common.ui.theme : change Theme name
+- com.example.presentation.common.ui.theme
+  - Theme name
 
-- settings.gradle.kts : change "rootProject.name" 
+- settings.gradle.kts
+  - "rootProject.name"
+
+#### Failed to resolve: com.google.firebase:firebase-auth-ktx
+
+- need /app/google-services.json

@@ -23,7 +23,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
 
-    private const val TOLERABLE_TIME = 5000L
+    private const val TOLERABLE_TIME = 3000L
 
     @Provides
     @Singleton
@@ -37,7 +37,7 @@ object NetworkModule {
             }
             install(Logging) {
                 logger = Logger.DEFAULT
-                level = LogLevel.BODY
+                level = LogLevel.ALL
             }
             install(HttpTimeout){
                 requestTimeoutMillis = TOLERABLE_TIME

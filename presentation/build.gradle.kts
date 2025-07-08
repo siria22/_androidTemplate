@@ -8,7 +8,7 @@ plugins {
 
 android {
     namespace = "com.example.presentation"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         minSdk = 26
@@ -38,12 +38,12 @@ android {
 }
 
 dependencies {
-
     implementation(project(":domain"))
 
     // Kotlin, Coroutines
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.kotlinx.coroutines.play.services)
 
     // Jetpack Compose
     implementation(platform(libs.androidx.compose.bom))

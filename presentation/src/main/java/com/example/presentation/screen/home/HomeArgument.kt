@@ -1,6 +1,6 @@
 package com.example.presentation.screen.home
 
-import com.example.domain.model.ExampleModel
+import com.example.presentation.utils.error.ErrorEvent
 import kotlinx.coroutines.flow.SharedFlow
 
 data class HomeArgument(
@@ -15,25 +15,15 @@ sealed class HomeState {
 }
 
 sealed class HomeIntent {
-    data class CreateNewExample(val newExample: ExampleModel) : HomeIntent()
-    data class DeleteExample(val targetExample: ExampleModel) : HomeIntent()
-    data object GetAllExamples : HomeIntent()
-    data object Refresh: HomeIntent()
+    data class SomeIntentWithParams(val param: String) : HomeIntent()
+    data object SomeIntentWithoutParams : HomeIntent()
 }
 
 sealed class HomeEvent {
-    sealed class FetchExample : HomeEvent() {
-        data object Success : FetchExample()
-        data class Error(val message: String) : FetchExample()
-    }
-
-    sealed class CreateExample : HomeEvent() {
-        data object Success : CreateExample()
-        data class Error(val message: String) : CreateExample()
-    }
-
-    sealed class DeleteExample : HomeEvent() {
-        data object Success : DeleteExample()
-        data class Error(val message: String) : DeleteExample()
+    sealed class DataFetch : HomeEvent() {
+        data class Error(
+            override val userMessage: String = "문제가 발생했습니다.",
+            override val exceptionMessage: String?
+        ) : DataFetch(), ErrorEvent
     }
 }

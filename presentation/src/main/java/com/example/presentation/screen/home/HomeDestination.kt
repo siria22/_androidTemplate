@@ -6,11 +6,17 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
-import com.example.presentation.common.nav.ScreenDestinations
+import com.example.presentation.utils.nav.ScreenDestinations
 
 fun NavGraphBuilder.homeDestination(navController: NavController) {
     composable(
-        route = ScreenDestinations.Home.route
+        route = ScreenDestinations.Home.route,
+//        arguments = listOf(
+//            navArgument(name = "") {
+//                type = NavType.LongType
+//                defaultValue = 0L
+//            }
+//        ) -> if route contains arguments
     ) {
         val viewModel: HomeViewModel = hiltViewModel()
 
@@ -25,12 +31,10 @@ fun NavGraphBuilder.homeDestination(navController: NavController) {
         }
 
         val data: HomeData = let {
-            val examples by viewModel.examples.collectAsStateWithLifecycle()
-            val randomUser by viewModel.randomUser.collectAsStateWithLifecycle()
+            val someData by viewModel.someData.collectAsStateWithLifecycle()
 
             HomeData(
-                examples = examples,
-                randomUser = randomUser
+                data = someData
             )
         }
 

@@ -18,7 +18,7 @@ class UserPreference(
         }
     }
 
-    fun observeDarkTheme(): Flow<Boolean> {
+    fun observeExamplePreference(): Flow<Boolean> {
         return context.dataStore.data.map { prefs ->
             prefs[examplePreference] ?: false
         }

@@ -8,8 +8,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
-import com.example.presentation.common.nav.AppNavGraph
-import com.example.presentation.common.ui.theme.SiriaTemplateTheme
+import com.example.siriaTemplate.common.nav.AppNavGraph
+import com.example.presentation.component.theme.SiriaTemplateTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

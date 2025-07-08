@@ -1,9 +1,7 @@
 package com.example.data.common.di
 
-import com.example.data.remote.local.repository.ExampleRepositoryImpl
-import com.example.data.remote.network.repository.RandomUserRepositoryImpl
+import com.example.data.remote.repository.ExampleRepositoryImpl
 import com.example.domain.repository.ExampleRepository
-import com.example.domain.repository.RandomUserRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -20,9 +18,4 @@ abstract class RepositoryModule {
         impl: ExampleRepositoryImpl
     ): ExampleRepository
 
-    @Binds
-    @Singleton
-    abstract fun bindServerTimeRepository(
-        impl: RandomUserRepositoryImpl
-    ): RandomUserRepository
 }
