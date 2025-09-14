@@ -1,6 +1,6 @@
 ## Android Project Template
 
-- Last update: 2023-08-14
+- Last update: 2025-09-14
 
 ### TODO
 
@@ -21,7 +21,3 @@
 
 - settings.gradle.kts
   - "rootProject.name"
-
-#### Failed to resolve: com.google.firebase:firebase-auth-ktx
-
-- need /app/google-services.json

@@ -24,6 +24,7 @@ import com.example.presentation.component.ui.atom.BasicInputTextField
 
 @Composable
 fun CustomTextFieldWithCondition(
+    modifier: Modifier = Modifier,
     value: String,
     onValueChange: (String) -> Unit,
     placeholder: String = "",
@@ -31,7 +32,6 @@ fun CustomTextFieldWithCondition(
     singleLine: Boolean = true,
     maxLength: Int = 20,
     allowNumberOnly: Boolean = false,
-    modifier: Modifier = Modifier
 ) {
     val regex = Regex("^\\d+$")
     fun validateInput(input: String): Boolean {

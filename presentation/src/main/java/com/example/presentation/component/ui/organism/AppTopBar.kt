@@ -30,9 +30,9 @@ import com.example.presentation.component.theme.SiriaTemplateTheme
 
 @Composable
 fun AppTopBar(
+    modifier: Modifier = Modifier,
     topBarInfo: TopBarInfo,
     background: Color = SiriaTemplateColorScheme.background,
-    modifier: Modifier = Modifier,
 ) {
     Row(
         horizontalArrangement = Arrangement.SpaceBetween,

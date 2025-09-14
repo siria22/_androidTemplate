@@ -1,6 +1,5 @@
 package com.example.presentation.screen.home
 
-import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -24,15 +23,15 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.example.presentation.utils.error.ErrorDialogState
-import com.example.presentation.utils.nav.ScreenDestinations
-import com.example.presentation.utils.nav.safeNavigate
+import com.example.presentation.component.theme.SiriaTemplateTheme
 import com.example.presentation.component.ui.organism.AppTopBar
 import com.example.presentation.component.ui.organism.BottomNavigationBar
 import com.example.presentation.component.ui.organism.CurrentBottomNav
 import com.example.presentation.component.ui.organism.TopBarInfo
 import com.example.presentation.utils.error.ErrorDialog
-import com.example.presentation.component.theme.SiriaTemplateTheme
+import com.example.presentation.utils.error.ErrorDialogState
+import com.example.presentation.utils.nav.ScreenDestinations
+import com.example.presentation.utils.nav.safeNavigate
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.MutableSharedFlow
 
@@ -91,7 +90,7 @@ fun HomeScreen(
         )
     }
 
-    BackHandler {  }
+    // BackHandler {  }
 }
 
 @Composable
@@ -108,6 +107,7 @@ private fun HomeScreenContents(
 
     }
 }
+
 
 @Preview
 @Composable
