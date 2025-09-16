@@ -51,6 +51,9 @@ espressoCore = "3.7.0"
 # Accompanist permission
 accompanistPermissions = "0.37.3"
 
+# KeyStore
+securityCrypto = "1.1.0"
+
 ################################################################
 
 [libraries]
@@ -131,6 +134,9 @@ ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx
 
 # Accompanist-permissions
 accompanist-permissions = { module = "com.google.accompanist:accompanist-permissions", version.ref = "accompanistPermissions" }
+
+# KeyStore
+androidx-security-crypto = { module = "androidx.security:security-crypto", version.ref = "securityCrypto" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

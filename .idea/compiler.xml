@@ -5,11 +5,4 @@
       <module name="AutoAdventure.autoadventure.data" target="21" />
     </bytecodeTargetLevel>
   </component>
-  <component name="JavacSettings">
-    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="siriaTemplate.domain" options="-proc:none" />
-      <module name="siriaTemplate.domain.main" options="-proc:none" />
-      <module name="siriaTemplate.domain.test" options="-proc:none" />
-    </option>
-  </component>
 </project>

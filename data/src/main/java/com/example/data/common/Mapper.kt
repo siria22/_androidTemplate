@@ -1,6 +1,6 @@
-package com.example.data.remote
+package com.example.data.common
 
-import com.example.data.remote.local.entity.ExampleEntity
+import com.example.data.local.entity.ExampleEntity
 import com.example.domain.model.ExampleModel
 
 fun ExampleModel.toEntity(): ExampleEntity {

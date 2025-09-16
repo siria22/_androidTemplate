@@ -1,6 +1,6 @@
 package com.example.data.common.di
 
-import com.example.data.remote.repository.ExampleRepositoryImpl
+import com.example.data.repository.ExampleRepositoryImpl
 import com.example.domain.repository.ExampleRepository
 import dagger.Binds
 import dagger.Module

@@ -1,7 +1,6 @@
 package com.example.data.common.di.preference
 
 import android.content.Context
-import com.example.data.remote.local.preference.UserPreference
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,7 +14,7 @@ object PreferenceModule {
 
     @Provides
     @Singleton
-    fun provideUserPreference(@ApplicationContext context: Context): UserPreference {
-        return UserPreference(context)
+    fun provideUserPreference(@ApplicationContext context: Context): UserPreferenceProvider {
+        return UserPreferenceProvider(context)
     }
 }

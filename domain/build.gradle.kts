@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile
 
 plugins {
     kotlin("jvm")
-    kotlin("kapt")
+    alias(libs.plugins.devtoolsKsp)
 }
 
 tasks.withType<KotlinJvmCompile>().configureEach {
@@ -20,7 +20,7 @@ java {
 dependencies {
     //Hilt
     implementation(libs.hilt.core)
-    kapt(libs.hilt.compiler)
+    ksp(libs.hilt.compiler)
 
     //Test
     testImplementation(libs.junit)

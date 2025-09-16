@@ -1,8 +1,9 @@
-package com.example.data.common.di.room
+package com.example.data.common.di.database
 
 import android.content.Context
 import androidx.room.Room
-import com.example.data.remote.local.dao.ExampleDao
+import com.example.data.local.AppDatabase
+import com.example.data.local.dao.ExampleDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

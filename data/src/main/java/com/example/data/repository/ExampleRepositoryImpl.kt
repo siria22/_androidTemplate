@@ -1,7 +1,7 @@
-package com.example.data.remote.repository
+package com.example.data.repository
 
-import com.example.data.remote.local.dao.ExampleDao
-import com.example.data.remote.toEntity
+import com.example.data.common.toEntity
+import com.example.data.local.dao.ExampleDao
 import com.example.domain.model.ExampleModel
 import com.example.domain.repository.ExampleRepository
 import javax.inject.Inject

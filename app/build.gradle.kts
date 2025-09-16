@@ -6,7 +6,7 @@ plugins {
     alias(libs.plugins.kotlin.compose)
 
     id("com.google.dagger.hilt.android")
-    kotlin("kapt")
+    alias(libs.plugins.devtoolsKsp)
 }
 
 android {
@@ -69,7 +69,7 @@ dependencies {
 
     // Hilt
     implementation(libs.hilt.android)
-    kapt(libs.hilt.android.compiler)
+    ksp(libs.hilt.android.compiler)
 
     // Navigation
     implementation(libs.androidx.navigation.common.android)
