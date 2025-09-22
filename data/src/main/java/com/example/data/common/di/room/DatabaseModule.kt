@@ -1,9 +1,8 @@
-package com.example.data.common.di.database
+package com.example.data.common.di.room
 
 import android.content.Context
 import androidx.room.Room
-import com.example.data.local.AppDatabase
-import com.example.data.local.dao.ExampleDao
+import com.example.data.remote.local.dao.ExampleDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,10 +18,10 @@ object DatabaseModule {
     @Singleton
     fun provideAppDatabase(@ApplicationContext context: Context): AppDatabase {
         return Room.databaseBuilder(
-                context.applicationContext,
-                AppDatabase::class.java,
-                "app_database"
-            ).fallbackToDestructiveMigration(true)
+            context.applicationContext,
+            AppDatabase::class.java,
+            "app_database"
+        ).fallbackToDestructiveMigration(true)
             .build()
     }
 

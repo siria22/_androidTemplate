@@ -22,8 +22,20 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.presentation.component.ui.atom.BasicInputTextField
 
+/**
+ * 도움말과 길이 제한이 있는 텍스트 필드 컴포넌트
+ *
+ * @param modifier 컴포넌트의 모디파이어를 설정합니다.
+ * @param value 텍스트 필드의 현재 값을 설정합니다.
+ * @param onValueChange 텍스트 필드의 값이 변경될 때 실행되는 콜백을 설정합니다.
+ * @param placeholder 텍스트 필드의 플레이스홀더 텍스트를 설정합니다.
+ * @param description 텍스트 필드의 설명 텍스트를 설정합니다.
+ * @param singleLine 텍스트 필드가 한 줄로 제한될 것인지 여부를 설정합니다.
+ * @param maxLength 텍스트 필드의 최대 길이를 설정합니다.
+ * @param allowNumberOnly 텍스트 필드가 숫자만 입력 가능하도록 제한할 것인지 여부를 설정합니다.
+ */
 @Composable
-fun CustomTextFieldWithCondition(
+fun TextFieldWithHelperAndLengthConstraints(
     modifier: Modifier = Modifier,
     value: String,
     onValueChange: (String) -> Unit,
@@ -86,7 +98,6 @@ fun CustomTextFieldWithCondition(
     }
 }
 
-
 @Preview(apiLevel = 34)
 @Composable
 private fun CustomTextFieldPreview() {
@@ -94,7 +105,7 @@ private fun CustomTextFieldPreview() {
     var input by remember { mutableStateOf("") }
     val onValueChange: (String) -> Unit = { str -> input = str }
 
-    CustomTextFieldWithCondition(
+    TextFieldWithHelperAndLengthConstraints(
         value = input,
         onValueChange = onValueChange,
         maxLength = 20,

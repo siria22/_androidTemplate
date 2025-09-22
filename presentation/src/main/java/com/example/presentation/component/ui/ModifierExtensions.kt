@@ -1,4 +1,4 @@
-package com.example.presentation.utils
+package com.example.presentation.component.ui
 
 import android.graphics.BlurMaskFilter
 import androidx.compose.ui.Modifier

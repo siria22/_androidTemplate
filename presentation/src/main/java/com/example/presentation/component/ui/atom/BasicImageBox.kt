@@ -23,6 +23,14 @@ import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.example.presentation.R
 
+/**
+ * Displays an image with a circular progress indicator while it is loading.
+ * Use AsyncImage from Coil.
+ *
+ * @param modifier The modifier to apply to this composable.
+ * @param size The size of the image box. The default value is 128.dp.
+ * @param galleryUri The [Uri] of the image to display. If null, a gray box will be displayed instead.
+ */
 @Composable
 fun BasicImageBox(
     modifier: Modifier = Modifier,
@@ -37,9 +45,11 @@ fun BasicImageBox(
     ) {
         if (galleryUri == null) {
             isLoading = false
-            Box(modifier = modifier
-                .background(Color.Gray)
-                .clip(RoundedCornerShape(4.dp)))
+            Box(
+                modifier = modifier
+                    .background(Color.Gray)
+                    .clip(RoundedCornerShape(4.dp))
+            )
         } else {
             AsyncImage(
                 model = ImageRequest.Builder(LocalContext.current)

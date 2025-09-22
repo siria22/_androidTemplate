@@ -25,13 +25,25 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
+/**
+ * A basic input text field component that provides a text input field with a placeholder and
+ * a clear button.
+ *
+ * @param value The current value of the text field.
+ * @param onValueChange The callback to be triggered when the text field value changes.
+ * @param modifier (Optional) The modifier to be applied to the text field.
+ * @param textStyle (Optional) The style to be applied to the text in the text field.
+ * @param placeholder (Optional) The placeholder text to be displayed when the text field is empty.
+ * @param singleLine (Optional) Whether the text field should be a single line or not.
+ * @param keyboardOptions (Optional) The options for the keyboard to be displayed for the text field.
+ */
 @Composable
 fun BasicInputTextField(
     value: String,
     onValueChange: (String) -> Unit,
     modifier: Modifier = Modifier,
     textStyle: TextStyle = MaterialTheme.typography.bodyLarge,
-    placeholder: String,
+    placeholder: String = "placeholder",
     singleLine: Boolean = true,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default
 ) {

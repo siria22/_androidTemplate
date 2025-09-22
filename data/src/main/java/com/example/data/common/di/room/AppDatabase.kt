@@ -1,9 +1,9 @@
-package com.example.data.local
+package com.example.data.common.di.room
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.example.data.local.dao.ExampleDao
-import com.example.data.local.entity.ExampleEntity
+import com.example.data.remote.local.dao.ExampleDao
+import com.example.data.remote.local.entity.ExampleEntity
 
 @Database(
     entities = [ExampleEntity::class],

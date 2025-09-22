@@ -27,6 +27,13 @@ import com.example.presentation.utils.nav.safePopBackStack
 import com.example.presentation.component.theme.SiriaTemplateColorScheme
 import com.example.presentation.component.theme.SiriaTemplateTheme
 
+/**
+ * Bottom Navigation Bar
+ *
+ * @param selectedItem The currently selected item on the Bottom Navigation Bar
+ * @param backgroundColor The background color of the Bottom Navigation Bar. Default is [Color.Transparent]
+ * @param navController The instance of [NavController] used for navigation
+ */
 @Composable
 fun BottomNavigationBar(
     selectedItem: CurrentBottomNav,
@@ -39,7 +46,7 @@ fun BottomNavigationBar(
             iconResourceId = R.drawable.history,
             bottomNavType = CurrentBottomNav.HISTORY,
             onClicked = {
-                // TODO : Navigate to History Screen
+                // TODO : [Bottom Nav] Navigate to History Screen
                 // navController.safeNavigate(ScreenDestinations.History.route)
             }
         ),
@@ -56,7 +63,7 @@ fun BottomNavigationBar(
             iconResourceId = R.drawable.account_circle,
             bottomNavType = CurrentBottomNav.PROFILE,
             onClicked = {
-                // TODO : Navigate to Profile Screen
+                // TODO : [Bottom Nav] Navigate to Profile Screen
                 // navController.safeNavigate(ScreenDestinations.Profile.route)
             }
         )
@@ -84,6 +91,7 @@ fun BottomNavigationBar(
         }
     }
 }
+/* <<<<<<<<<<  a5d9158e-0c34-4c7c-9fce-08a383229082  >>>>>>>>>>> */
 
 @Composable
 private fun BottomNavItem(

@@ -8,12 +8,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.presentation.component.theme.SiriaTemplateColorScheme
+import com.example.presentation.component.theme.SiriaTemplateTheme
+import com.example.presentation.component.ui.Space16
 import com.example.presentation.component.ui.atom.BasicButton
 import com.example.presentation.component.ui.atom.BasicDialog
 import com.example.presentation.component.ui.atom.ButtonType
-import com.example.presentation.component.theme.SiriaTemplateColorScheme
-import com.example.presentation.component.theme.SiriaTemplateTheme
-import com.example.presentation.component.theme.Space16
 
 @Composable
 fun ErrorDialog(

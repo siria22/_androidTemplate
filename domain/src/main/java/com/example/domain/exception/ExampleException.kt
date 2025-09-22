@@ -1,6 +1,6 @@
 package com.example.domain.exception
 
-class RandomUserFetchFailureException(
-    override val message: String = "Failed to fetch random user",
+class ExampleException(
+    override val message: String = "Example Exception",
     override val cause: Throwable? = null
 ) : Exception(message, cause)

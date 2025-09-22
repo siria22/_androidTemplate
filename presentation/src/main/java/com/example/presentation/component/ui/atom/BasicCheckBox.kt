@@ -16,8 +16,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.presentation.component.theme.SiriaTemplateColorScheme
 import com.example.presentation.component.theme.SiriaTemplateTheme
-import com.example.presentation.component.theme.SmallRoundedCorner
-import com.example.presentation.component.theme.Space8
+import com.example.presentation.component.ui.SmallRoundedCorner
+import com.example.presentation.component.ui.Space8
 
 
 @Composable

@@ -1,4 +1,4 @@
-package com.example.presentation.component.theme
+package com.example.presentation.component.ui
 
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
@@ -20,8 +20,6 @@ fun Space16() {
 
 
 // RoundedCornerShape
-
 val SmallRoundedCorner = RoundedCornerShape(4.dp)
-
 val DefaultRoundedCorner = RoundedCornerShape(8.dp)
 val LargeRoundedCorner = RoundedCornerShape(16.dp)

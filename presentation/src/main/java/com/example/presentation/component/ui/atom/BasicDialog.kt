@@ -19,11 +19,21 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.presentation.component.theme.LargeRoundedCorner
 import com.example.presentation.component.theme.SiriaTemplateColorScheme
+import com.example.presentation.component.ui.LargeRoundedCorner
 
+/**
+ * Creates a basic dialog with a transparent background and a content area.
+ * It is designed to be used as a simple dialog for user interaction.
+ *
+ * @param modifier Modifier to be applied to the root layout of the dialog.
+ * @param minimumWidth The minimum width of the dialog as a fraction of the screen width.
+ * @param backHandler A function that will be called when the back button is pressed.
+ * @param content The @Composable content of the dialog.
+ */
 @Composable
 fun BasicDialog(
+    modifier: Modifier = Modifier,
     minimumWidth: Float = 0.8f,
     backHandler: () -> Unit = {},
     content: @Composable () -> Unit
@@ -38,7 +48,7 @@ fun BasicDialog(
                 interactionSource = remember { MutableInteractionSource() }) { }
     ) {
         Column(
-            modifier = Modifier
+            modifier = modifier
                 .align(Alignment.Center)
                 .background(
                     color = SiriaTemplateColorScheme.background,
