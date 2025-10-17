@@ -7,6 +7,8 @@ ksp = "2.2.20-2.0.2"
 kotlin = "2.2.20"
 kotlinxCoroutinesCore = "1.10.2"
 kotlinxCoroutinesAndroid = "1.10.2"
+kotlinxSerializationJson = "1.9.0"
+gson = "2.13.2"
 
 # AndroidX Core & AppCompat
 coreKtx = "1.17.0"
@@ -14,7 +16,7 @@ appcompat = "1.7.1"
 activityCompose = "1.11.0"
 
 # Jetpack Compose
-composeBom = "2025.09.01"
+composeBom = "2025.10.00"
 constraintlayoutCompose = "1.1.1"
 material = "1.13.0"
 material3Android = "1.4.0"
@@ -36,12 +38,12 @@ hiltAndroid = "2.57.2"
 coilBom = "2.7.0"
 
 # Data Persistence (Room, Datastore)
-roomRuntime = "2.8.1"
+roomRuntime = "2.8.2"
 datastorePreferences = "1.1.7"
 datastoreCoreAndroid = "1.1.7"
 
 # Networking (Ktor)
-ktorVersion = "3.3.0"
+ktorVersion = "3.3.1"
 
 # Test
 junit = "4.13.2"
@@ -53,6 +55,14 @@ accompanistPermissions = "0.37.3"
 
 # KeyStore
 securityCrypto = "1.1.0"
+
+# Glance
+glanceAppwidget = "1.1.1"
+
+# Firebase
+firebaseBom = "34.4.0"
+credentialManager = "1.5.0"
+googleid = "1.1.1"
 
 ################################################################
 
@@ -67,8 +77,9 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinxCoroutinesCore" }
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinxCoroutinesAndroid" }
 kotlinx-coroutines-play-services = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-play-services" }
-kotlinx-serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version = "kotlinxSerializationJson" }
-kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version = "kotlinxSerializationJson" }
+kotlinx-serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "kotlinxSerializationJson" }
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
+gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 
 # Hilt (DI)
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroid" }
@@ -138,6 +149,22 @@ accompanist-permissions = { module = "com.google.accompanist:accompanist-permiss
 
 # KeyStore
 androidx-security-crypto = { module = "androidx.security:security-crypto", version.ref = "securityCrypto" }
+
+# Glance
+androidx-glance-appwidget = { module = "androidx.glance:glance-appwidget", version.ref = "glanceAppwidget" }
+
+# Firebase
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
+firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
+firebase-auth = { group = "com.google.firebase", name = "firebase-auth" }
+firebase-functions = { module= "com.google.firebase:firebase-functions"}
+firebase-firestore = { module = "com.google.firebase:firebase-firestore" }
+firebase-messaging = { group = "com.google.firebase", name = "firebase-messaging"}
+
+# Credential Manager
+credential-manager = { group = "androidx.credentials", name = "credentials", version.ref = "credentialManager" }
+credential-manager-google = { group = "androidx.credentials", name = "credentials-play-services-auth", version.ref = "credentialManager" }
+googleid = { group = "com.google.android.libraries.identity.googleid", name = "googleid", version.ref = "googleid" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

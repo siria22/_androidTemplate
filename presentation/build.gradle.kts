@@ -40,55 +40,58 @@ android {
 dependencies {
     implementation(project(":domain"))
 
-    // Kotlin, Coroutines
-    implementation(libs.kotlinx.coroutines.core)
-    implementation(libs.kotlinx.coroutines.android)
-    implementation(libs.kotlinx.coroutines.play.services)
-
-    // Jetpack Compose
+    // UI - Compose
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.tooling.preview)
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
     implementation(libs.androidx.constraintlayout.compose)
+    implementation(libs.androidx.activity.compose) // for 'collectAsStateWithLifecycle()'
 
-    // Material
+    // UI - Material
     implementation(libs.material)
     implementation(libs.androidx.material3.android)
     implementation(libs.androidx.compose.material.icons.extended)
 
-    // Navigation
-    implementation(libs.androidx.navigation.common.android)
-    implementation(libs.androidx.navigation.runtime)
-    implementation(libs.androidx.navigation.compose)
-
-    // Hilt
-    implementation(libs.hilt.android)
-    implementation(libs.androidx.hilt.navigation.compose)
-    ksp(libs.hilt.android.compiler)
-
-    // Lifecycle
-    implementation(libs.androidx.lifecycle.viewmodel.ktx)
-    implementation(libs.androidx.lifecycle.viewmodel.compose)
-    implementation(libs.androidx.lifecycle.viewmodel.savedstate)
-
-    // Accompanist Permissions
-    implementation(libs.accompanist.permissions)
-
-    // Coil
-    implementation(platform(libs.coil.bom)) // bom
+    // UI - Image
+    implementation(platform(libs.coil.bom))
     implementation(libs.coil.compose)
     implementation(libs.coil.gif)
     implementation(libs.coil.svg)
     implementation(libs.coil.video)
 
-    // Debug
-    debugImplementation(libs.androidx.ui.tooling)
-    debugImplementation(libs.androidx.ui.test.manifest)
+    // UI - Glance
+    implementation(libs.androidx.glance.appwidget)
+
+    // Lifecycle & Navigation
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.lifecycle.viewmodel.savedstate)
+    implementation(libs.androidx.navigation.compose)
+
+    // DI
+    implementation(libs.hilt.android)
+    implementation(libs.androidx.hilt.navigation.compose)
+    ksp(libs.hilt.android.compiler)
+
+    // Permissions
+    implementation(libs.accompanist.permissions)
+
+    // Firebase & Auth
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.analytics)
+    implementation(libs.firebase.auth)
+    implementation(libs.firebase.firestore)
+    implementation(libs.firebase.messaging)
+    implementation(libs.credential.manager)
+    implementation(libs.credential.manager.google)
+    implementation(libs.googleid)
+    implementation(libs.kotlinx.coroutines.play.services)
 
     // Test
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    debugImplementation(libs.androidx.ui.tooling)
+    debugImplementation(libs.androidx.ui.test.manifest)
 }

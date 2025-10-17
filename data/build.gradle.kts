@@ -40,43 +40,39 @@ tasks.withType<KotlinJvmCompile>().configureEach {
 }
 
 dependencies {
-
     implementation(project(":domain"))
 
-    // Core AndroidX
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
-
-    // Room
-    implementation(libs.androidx.room.runtime)
-    implementation(libs.androidx.room.ktx)
-    ksp(libs.androidx.room.room.compiler)
-
-    // Hilt
-    implementation(libs.hilt.android)
-    ksp(libs.hilt.compiler)
-
-    // Test
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-
-    // Ktor
+    // Networking
     implementation(libs.ktor.client.core)
     implementation(libs.ktor.client.cio)
     implementation(libs.ktor.client.content.negotiation)
     implementation(libs.ktor.serialization.kotlinx.json)
     implementation(libs.ktor.client.logging)
-
-    // Kotlin Serialization
-    implementation(libs.kotlinx.serialization.core)
     implementation(libs.kotlinx.serialization.json)
 
-    // DataStore - preferences
+    // Data - Room
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    ksp(libs.androidx.room.room.compiler)
+
+    // Data - DataStore
     implementation(libs.androidx.datastore.core.android)
     implementation(libs.androidx.datastore.preferences)
 
-    // KeyStore - security
+    // DI
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
+
+    // Security
     implementation(libs.androidx.security.crypto)
+
+    // Firebase
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.functions)
+    implementation(libs.firebase.auth)
+
+    // Test
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
 }

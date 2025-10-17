@@ -13,7 +13,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.presentation.component.theme.SiriaTemplateColorScheme
 import com.example.presentation.component.theme.SiriaTemplateTheme
 
 @Composable
@@ -24,15 +23,15 @@ fun BasicButton(
     modifier: Modifier = Modifier
 ) {
     val buttonColor = when (type) {
-        ButtonType.PRIMARY -> SiriaTemplateColorScheme.primaryButtonColor
-        ButtonType.SECONDARY -> SiriaTemplateColorScheme.secondaryButtonColor
-        ButtonType.DEFAULT -> SiriaTemplateColorScheme.surface
+        ButtonType.PRIMARY -> SiriaTemplateTheme.colorScheme.primaryButtonColor
+        ButtonType.SECONDARY -> SiriaTemplateTheme.colorScheme.secondaryButtonColor
+        ButtonType.DEFAULT -> SiriaTemplateTheme.colorScheme.surface
     }
 
     val textColor = when (type) {
-        ButtonType.PRIMARY -> SiriaTemplateColorScheme.onPrimaryButtonColor
-        ButtonType.SECONDARY -> SiriaTemplateColorScheme.onSecondaryButtonColor
-        ButtonType.DEFAULT -> SiriaTemplateColorScheme.commonText
+        ButtonType.PRIMARY -> SiriaTemplateTheme.colorScheme.onPrimaryButtonColor
+        ButtonType.SECONDARY -> SiriaTemplateTheme.colorScheme.onSecondaryButtonColor
+        ButtonType.DEFAULT -> SiriaTemplateTheme.colorScheme.commonText
     }
 
     Box(

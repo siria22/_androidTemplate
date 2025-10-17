@@ -1,4 +1,4 @@
-package com.example.domain.repository
+package com.example.domain.repository.feature
 
 import com.example.domain.model.ExampleModel
 

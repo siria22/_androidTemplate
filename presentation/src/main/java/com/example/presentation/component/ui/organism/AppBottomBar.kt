@@ -3,9 +3,9 @@ package com.example.presentation.component.ui.organism
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
@@ -23,9 +23,8 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.presentation.R
-import com.example.presentation.utils.nav.safePopBackStack
-import com.example.presentation.component.theme.SiriaTemplateColorScheme
 import com.example.presentation.component.theme.SiriaTemplateTheme
+import com.example.presentation.utils.nav.safePopBackStack
 
 /**
  * Bottom Navigation Bar
@@ -91,7 +90,6 @@ fun BottomNavigationBar(
         }
     }
 }
-/* <<<<<<<<<<  a5d9158e-0c34-4c7c-9fce-08a383229082  >>>>>>>>>>> */
 
 @Composable
 private fun BottomNavItem(
@@ -101,43 +99,34 @@ private fun BottomNavItem(
     modifier: Modifier,
     onClicked: () -> Unit
 ) {
-    val selectedColor = SiriaTemplateColorScheme.primary
-    val unselectedColor = Color.White
+    val selectedColor = SiriaTemplateTheme.colorScheme.iconTint
+    val unselectedColor = SiriaTemplateTheme.colorScheme.inactivatedIconColor
+
+    val iconColor = if (isSelected) selectedColor else unselectedColor
 
     Column(
-        modifier = modifier.clickable {
-            onClicked()
-        },
+        modifier = modifier.clickable { onClicked() },
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.SpaceBetween
     ) {
         Column(
             modifier = Modifier
-                .height(52.dp)
+                .fillMaxHeight()
                 .fillMaxWidth()
-                .background(if (isSelected) selectedColor else unselectedColor),
+                .background(SiriaTemplateTheme.colorScheme.surface),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
             Icon(
                 painter = iconRes,
                 contentDescription = itemLabel,
-                tint = Color.White,
+                tint = iconColor,
                 modifier = Modifier.size(28.dp)
             )
             Text(
                 text = itemLabel,
-                color = Color.White,
+                color = iconColor,
                 style = MaterialTheme.typography.bodySmall
-            )
-        }
-
-        if (!isSelected) {
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(4.dp)
-                    .background(MaterialTheme.colorScheme.primary)
             )
         }
     }

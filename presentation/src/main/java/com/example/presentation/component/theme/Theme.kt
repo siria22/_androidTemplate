@@ -8,51 +8,49 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.platform.LocalContext
+import com.example.domain.model.type.AppTheme
 
-private val DarkColorScheme = darkColorScheme(
-//    primary = Color.White,
-//    secondary = Color.White,
-//    background = Color.White,
-//    surface = Color.White,
-//    onPrimary = Color.Black,
-//    onSecondary = Color.Black,
-//    onTertiary = Color.White,
-//    onBackground = Color.Black,
-//    onSurface = Color.Black
-)
+private val DarkColorScheme = darkColorScheme()
+private val LightColorScheme = lightColorScheme()
 
-private val LightColorScheme = lightColorScheme(
-//    primary = Color.White,
-//    secondary = Color.White,
-//    background = Color.White,
-//    surface = Color.White,
-//    onPrimary = Color.Black,
-//    onSecondary = Color.Black,
-//    onTertiary = Color.White,
-//    onBackground = Color.Black,
-//    onSurface = Color.Black
-)
+object SiriaTemplateTheme {
+    val colorScheme: SiriaTemplateColorScheme
+        @Composable
+        get() = LocalTaskOverflowColorScheme.current
+}
 
 @Composable
 fun SiriaTemplateTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
+    appTheme: AppTheme = AppTheme.DEVICE,
     dynamicColor: Boolean = false,
     content: @Composable () -> Unit
 ) {
-    val colorScheme = when {
+    val useDarkTheme = when (appTheme) {
+        AppTheme.DAYLIGHT -> false
+        AppTheme.DARK -> true
+        AppTheme.DEVICE -> isSystemInDarkTheme()
+    }
+
+    val customColorScheme = getTaskOverflowColorScheme(useDarkTheme)
+
+    val materialColorScheme = when {
         dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
             val context = LocalContext.current
-            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
+            if (useDarkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
         }
 
-        darkTheme -> DarkColorScheme
+        useDarkTheme -> DarkColorScheme
         else -> LightColorScheme
     }
 
-    MaterialTheme(
-        colorScheme = colorScheme,
-        typography = Typography,
-        content = content
-    )
+    CompositionLocalProvider(LocalTaskOverflowColorScheme provides customColorScheme) {
+        MaterialTheme(
+            colorScheme = materialColorScheme,
+            typography = Typography,
+            content = content
+        )
+    }
+
 }

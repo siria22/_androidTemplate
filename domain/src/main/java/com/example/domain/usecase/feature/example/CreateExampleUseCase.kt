@@ -1,7 +1,7 @@
-package com.example.domain.usecase.example
+package com.example.domain.usecase.feature.example
 
 import com.example.domain.model.ExampleModel
-import com.example.domain.repository.ExampleRepository
+import com.example.domain.repository.feature.ExampleRepository
 import javax.inject.Inject
 
 class CreateExampleUseCase @Inject constructor(

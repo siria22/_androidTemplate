@@ -1,31 +1,30 @@
-package com.example.data.common.di.preference
+package com.example.data.remote.local.preference
 
 import android.content.Context
-import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
-class UserPreferenceProvider(
+class PreferenceProvider(
     private val context: Context
 ) {
     private val Context.dataStore by preferencesDataStore("user_preferences")
 
-    suspend fun updateExamplePreference(value: Boolean) {
+    suspend fun updateTheme(theme: String) {
         context.dataStore.edit { preferences ->
-            preferences[examplePreference] = value
+            preferences[appTheme] = theme
         }
     }
 
-    fun observeExamplePreference(): Flow<Boolean> {
+    fun observeTheme(): Flow<String> {
         return context.dataStore.data.map { prefs ->
-            prefs[examplePreference] ?: false
+            prefs[appTheme] ?: "DEVICE"
         }
     }
-
 
     companion object {
-        val examplePreference = booleanPreferencesKey("example_preference")
+        val appTheme = stringPreferencesKey("app_theme")
     }
 }

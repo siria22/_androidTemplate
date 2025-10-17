@@ -1,9 +1,9 @@
 package com.example.data.remote.local.repository
 
 import com.example.data.common.toEntity
-import com.example.data.remote.local.dao.ExampleDao
+import com.example.data.remote.local.database.dao.ExampleDao
 import com.example.domain.model.ExampleModel
-import com.example.domain.repository.ExampleRepository
+import com.example.domain.repository.feature.ExampleRepository
 import javax.inject.Inject
 
 class ExampleRepositoryImpl @Inject constructor(

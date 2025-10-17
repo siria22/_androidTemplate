@@ -18,10 +18,14 @@ java {
 }
 
 dependencies {
-    //Hilt
+    // DI
     implementation(libs.hilt.core)
     ksp(libs.hilt.compiler)
 
-    //Test
+    // Kotlinx
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.serialization.json)
+
+    // Test
     testImplementation(libs.junit)
 }

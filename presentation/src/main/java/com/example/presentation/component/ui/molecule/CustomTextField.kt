@@ -15,11 +15,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.presentation.component.theme.SiriaTemplateTheme
 import com.example.presentation.component.ui.atom.BasicInputTextField
 
 /**
@@ -83,15 +83,15 @@ fun TextFieldWithHelperAndLengthConstraints(
             Text(
                 text = description.ifEmpty { "적절한 내용을 입력해주세요" },
                 style = MaterialTheme.typography.bodyMedium,
-                color = if (value.length <= maxLength) Color.Black
-                else Color.Red,
+                color = if (value.length <= maxLength) SiriaTemplateTheme.colorScheme.commonText
+                else SiriaTemplateTheme.colorScheme.warningText,
                 textAlign = TextAlign.Center
             )
             Text(
                 text = "(${value.length} / ${maxLength})",
                 style = MaterialTheme.typography.bodyMedium,
-                color = if (value.length <= maxLength) Color.Black
-                else Color.Red,
+                color = if (value.length <= maxLength) SiriaTemplateTheme.colorScheme.commonText
+                else SiriaTemplateTheme.colorScheme.warningText,
                 textAlign = TextAlign.Center
             )
         }

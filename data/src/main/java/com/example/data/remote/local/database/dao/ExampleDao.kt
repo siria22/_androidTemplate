@@ -1,15 +1,15 @@
-package com.example.data.remote.local.dao
+package com.example.data.remote.local.database.dao
 
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.data.remote.local.entity.ExampleEntity
+import com.example.data.remote.local.database.entity.ExampleEntity
 
 @Dao
 interface ExampleDao {
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.Companion.REPLACE)
     suspend fun createExampleEntity(exampleEntity: ExampleEntity)
 
     @Query("SELECT * FROM example")

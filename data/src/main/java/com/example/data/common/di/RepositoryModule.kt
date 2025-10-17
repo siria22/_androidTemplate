@@ -1,7 +1,9 @@
 package com.example.data.common.di
 
+import com.example.data.remote.local.preference.PreferenceRepositoryImpl
 import com.example.data.remote.local.repository.ExampleRepositoryImpl
-import com.example.domain.repository.ExampleRepository
+import com.example.domain.repository.feature.ExampleRepository
+import com.example.domain.usecase.nonfeature.preference.PreferenceRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -17,5 +19,11 @@ abstract class RepositoryModule {
     abstract fun bindExampleRepository(
         impl: ExampleRepositoryImpl
     ): ExampleRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindPreferenceRepository(
+        impl: PreferenceRepositoryImpl
+    ): PreferenceRepository
 
 }
