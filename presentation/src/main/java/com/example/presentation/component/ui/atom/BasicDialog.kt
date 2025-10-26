@@ -28,6 +28,7 @@ import com.example.presentation.component.ui.LargeRoundedCorner
  *
  * @param modifier Modifier to be applied to the root layout of the dialog.
  * @param minimumWidth The minimum width of the dialog as a fraction of the screen width.
+ * @param onDismissRequest A function that will be called when the dialog is dismissed.
  * @param backHandler A function that will be called when the back button is pressed.
  * @param content The @Composable content of the dialog.
  */
@@ -35,17 +36,20 @@ import com.example.presentation.component.ui.LargeRoundedCorner
 fun BasicDialog(
     modifier: Modifier = Modifier,
     minimumWidth: Float = 0.8f,
-    backHandler: () -> Unit = {},
+    onDismissRequest: () -> Unit = {},
+    backHandler: (() -> Unit)? = null,
     content: @Composable () -> Unit
 ) {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(color = Color.Black.copy(alpha = 0.5f))
+            .background(Color.Black.copy(alpha = 0.5f))
             .clickable(
-                enabled = true,
+                interactionSource = remember { MutableInteractionSource() },
                 indication = null,
-                interactionSource = remember { MutableInteractionSource() }) { }
+                onClick = onDismissRequest
+            ),
+        contentAlignment = Alignment.Center
     ) {
         Column(
             modifier = modifier
@@ -55,13 +59,14 @@ fun BasicDialog(
                     shape = LargeRoundedCorner
                 )
                 .padding(24.dp)
-                .fillMaxWidth(minimumWidth),
+                .fillMaxWidth(minimumWidth)
+                .clickable{ },
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             content()
         }
-        BackHandler { backHandler() }
+        BackHandler { backHandler?.invoke() ?: onDismissRequest() }
     }
 }
 
