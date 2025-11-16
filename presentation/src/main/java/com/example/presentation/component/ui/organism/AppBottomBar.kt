@@ -9,21 +9,20 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.painter.Painter
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.presentation.R
 import com.example.presentation.component.theme.SiriaTemplateTheme
+import com.example.presentation.component.ui.atom.BasicIcon
+import com.example.presentation.component.ui.atom.IconResource
 import com.example.presentation.utils.nav.safePopBackStack
 
 /**
@@ -77,7 +76,7 @@ fun BottomNavigationBar(
     ) {
         navItemList.forEachIndexed { _, item ->
             BottomNavItem(
-                iconRes = painterResource(item.iconResourceId),
+                iconRes = IconResource.Drawable(item.iconResourceId),
                 itemLabel = item.label,
                 isSelected = (selectedItem == item.bottomNavType),
                 modifier = Modifier
@@ -93,7 +92,7 @@ fun BottomNavigationBar(
 
 @Composable
 private fun BottomNavItem(
-    iconRes: Painter,
+    iconRes: IconResource,
     itemLabel: String,
     isSelected: Boolean,
     modifier: Modifier,
@@ -117,8 +116,8 @@ private fun BottomNavItem(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
-            Icon(
-                painter = iconRes,
+            BasicIcon(
+                iconResource = iconRes,
                 contentDescription = itemLabel,
                 tint = iconColor,
                 modifier = Modifier.size(28.dp)

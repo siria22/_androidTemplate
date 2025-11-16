@@ -14,18 +14,18 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowLeft
 import androidx.compose.material.icons.filled.MoreVert
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.presentation.component.theme.SiriaTemplateTheme
+import com.example.presentation.component.ui.atom.BasicIcon
+import com.example.presentation.component.ui.atom.IconResource
 
 @Composable
 fun AppTopBar(
@@ -73,22 +73,22 @@ data class TopBarInfo(
     val text: String,
     val isLeadingIconAvailable: Boolean = false,
     val onLeadingIconClicked: () -> Unit = {},
-    val leadingIconResource: ImageVector = Icons.AutoMirrored.Filled.KeyboardArrowLeft,
+    val leadingIconResource: IconResource = IconResource.Vector(Icons.AutoMirrored.Filled.KeyboardArrowLeft),
     val isTrailingIconAvailable: Boolean = false,
     val onTrailingIconClicked: () -> Unit = {},
-    val trailingIconResource: ImageVector = Icons.Filled.MoreVert
+    val trailingIconResource: IconResource = IconResource.Vector(Icons.Filled.MoreVert)
 )
 
 @Composable
 private fun TopBarLeadingIcon(
     isLeadingIconAvailable: Boolean,
     onLeadingIconClicked: () -> Unit,
-    iconResource: ImageVector,
+    iconResource: IconResource,
     modifier: Modifier = Modifier
 ) {
     if (isLeadingIconAvailable) {
-        Icon(
-            imageVector = iconResource,
+        BasicIcon(
+            iconResource = iconResource,
             tint = SiriaTemplateTheme.colorScheme.iconTint,
             contentDescription = "Leading Icon",
             modifier = modifier
@@ -105,12 +105,12 @@ private fun TopBarLeadingIcon(
 private fun TopBarTrailingIcon(
     isTrailingIconAvailable: Boolean,
     onTrailingIconClicked: () -> Unit,
-    iconResource: ImageVector,
+    iconResource: IconResource,
     modifier: Modifier = Modifier
 ) {
     if (isTrailingIconAvailable) {
-        Icon(
-            imageVector = iconResource,
+        BasicIcon(
+            iconResource = iconResource,
             tint = SiriaTemplateTheme.colorScheme.iconTint,
             contentDescription = "Trailing Icon",
             modifier = modifier
